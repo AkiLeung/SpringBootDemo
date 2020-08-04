@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="stylesheet" th:href="@{/loginTheme/styleBlue/css/style.css}">
+</head>
+<body>
+<form th:action="default">
+    <div class="mainDiv1">
+        <h1></h1>
+        &nbsp;<a href="?lang=en_US">English</a> &nbsp;|
+        &nbsp;<a href="?lang=zh_CN">简体</a> &nbsp;|
+        &nbsp;<a href="?lang=zh_TW">繁体</a> &nbsp;|
+        <div class="mainDiv2">
+            <ul>
+                <li><span th:text="#{user.username}">：</span>
+                    <input type="text"
+                           name="username"
+                           id="username"
+                           placeholder="用户....."
+                           class="SearchKeyword1"
+                           value="admin">
+                </li>
+                <li><span  th:text="#{user.password}">：</span>
+                    <input type="text"
+                           name="password"
+                           id="password"
+                           placeholder="密码...."
+                           class="SearchKeyword2"
+                           value="123456">
+                </li>
+                <li>
+                    <button id="submit" name="submit" class="submit" th:text="#{user.login}">
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div class="footPage"><span style="font-family:arial;">Copyright</span></div>
+    </div>
+    </div>
+</form>
+</body>
+</html>

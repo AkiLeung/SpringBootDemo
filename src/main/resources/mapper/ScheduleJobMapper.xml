@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.demo.dao.IScheduleJobDao">
+
+    <!--在mapper文件中引入缓存策略-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <resultMap type="ScheduleJob" id="ResultSet">
+        <result property="jobId" column="job_id"/>
+        <result property="jobClass" column="job_class"/>
+        <result property="jobGroup" column="job_group"/>
+        <result property="jobName" column="job_name"/>
+        <result property="triggerName" column="trigger_name"/>
+        <result property="triggerGroup" column="trigger_group"/>
+        <result property="cronExpr" column="cron_expr"/>
+        <result property="statusEnum" column="statusEnum"/>
+        <result property="deleteFlag" column="delete_flag"/>
+        <result property="startTime" column="start_time"/>
+        <result property="createdTime" column="created_time"/>
+        <result property="updatedTime" column="updated_time"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="listData" resultMap="ResultSet">
+        select * from tbl_sys_schedule_job where statusEnum = 1 order by job_name asc
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(job_id) as total
+        from tbl_sys_schedule_job
+        where 1 = 1 order by job_name asc
+    </select>
+
+    <!-- 查找指定 Uuid-->
+    <select id="queryDataById" resultMap="ResultSet">
+        select * from tbl_sys_schedule_job where job_id = #{jobId}
+    </select>
+
+    <!-- 新增 -->
+    <insert id="insertData">
+        insert into tbl_sys_schedule_job
+        (job_id,job_class,job_group,job_name,trigger_name,trigger_group,
+        cron_expr,statusEnum,delete_flag,start_time,created_time,updated_time)
+        values
+        (#{jobId},#{jobClass},#{jobGroup},#{jobName},#{triggerName},#{triggerGroup},
+        #{cronExpr},#{statusEnum},#{deleteFlag},#{startTime},#{createdTime},#{updatedTime}
+        )
+    </insert>
+
+    <!-- 更新 -->
+    <update id="updateData">
+        update tbl_sys_schedule_job set
+        job_class = #{jobClass},
+        job_group = #{jobGroup},
+        job_name = #{jobName},
+        trigger_name = #{triggerName},
+        trigger_group = #{triggerGroup},
+        cron_expr = #{cronExpr},
+        statusEnum = #{statusEnum},
+        delete_flag = #{deleteFlag},
+        start_time = #{startTime},
+        created_time = #{createdTime}
+        where job_id = #{JobId}
+	</update>
+
+    <!-- 刪除 -->
+    <delete id="deleteData">
+        delete from tbl_sys_schedule_job where job_id = #{JobId}
+    </delete>
+</mapper>

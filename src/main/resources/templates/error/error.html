@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>error</title>
+    <link rel="stylesheet" th:href="@{/bootstrap/bootstrap.min.css}">
+    <script th:src="@{/bootstrap/jquery.min.js}"></script>
+    <script th:src="@{/bootstrap/bootstrap.min.js}"></script>
+</head>
+<body style="margin-left: 200px;margin-right: 200px">
+
+<h2 style="color:red">发生错误：</h2>
+<div th:text = "${url}"></div>
+<h1 th:text = "${exception}"></h1>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <script th:src="@{/js/jquery.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+</head>
+<body style="margin-left: 200px;margin-right: 200px">
+<nav class="navbar navbar-inverse nav-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">测试页面</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="starter">
+        <table class="table table-striped table-hover table-condensed">
+            <caption>测试数据：总页数：<span th:text="${totalPages}"></span></caption>
+            <thead>
+            <tr>
+                <th>物料编码</th>
+                <th>物料描述</th>
+                <th>基础单位</th>
+                <th>销售单位</th>
+            </tr>
+            </thead>
+            <tbody th:each="material : ${materialList}">
+            <tr>
+                <td th:text="${material.number}"></td>
+                <td th:text="${material.description}"></td>
+                <td th:text="${material.baseUnit}"></td>
+                <td th:text="${material.salesUnit}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

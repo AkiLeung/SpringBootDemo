@@ -1,0 +1,7 @@
+19:38:57.892 [main] INFO  com.springboot.demo.Application - Starting Application on JOSEPHL-PC with PID 12044 (D:\JOSEPH\JavaDev\Springbootdemo\target\classes started by JOSEPH.L in D:\JOSEPH\JavaDev\Springbootdemo)
+19:38:57.899 [main] INFO  com.springboot.demo.Application - The following profiles are active: dev
+19:38:58.852 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8081"]
+19:38:58.853 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+19:38:58.853 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.35]
+19:38:58.930 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+19:38:59.085 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]

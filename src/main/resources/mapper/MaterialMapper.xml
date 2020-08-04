@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springboot.demo.dao.IMaterialDao">
+
+    <!--在mapper文件中引入缓存策略-->
+    <!--<cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <resultMap type="Material" id="MaterialResult">
+        <result property="uuid" column="uuid"/>
+        <result property="number" column="number"/>
+        <result property="createdDate" column="created_date"/>
+        <result property="changedDate" column="changed_date"/>
+        <result property="type" column="type"/>
+        <result property="group" column="group"/>
+        <result property="baseUnit" column="base_unit"/>
+        <result property="salesUnit" column="sales_unit"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <!-- 查找所有 -->
+    <select id="listData" resultMap="MaterialResult">
+        select * from tbl_material  where 1 = 1 order by number asc
+        <if test="startRow != null and  pageSize!= null">
+            limit #{startRow},#{pageSize}
+        </if>
+    </select>
+
+    <!-- 統計個數-->
+    <select id="listCount" resultType="Integer">
+        select count(uuid) as total
+        from tbl_material
+        where 1 = 1 order by number asc
+    </select>
+
+</mapper>
