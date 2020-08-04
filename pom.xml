@@ -28,7 +28,7 @@
         <!-- lombok快速注解 -->
         <lombok.version>1.18.6</lombok.version>
         <!-- mysql连接 -->
-        <mysql.version>8.0.15</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <!-- mybatis版本号 -->
         <mybatis-spring>2.1.1</mybatis-spring>
         <!-- shiro安全框架 -->
