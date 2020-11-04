@@ -34,51 +34,51 @@ public class ScheduleJobController {
     @GetMapping("/simpleScheduleJob-Start")
     public String testJobStart() throws Exception {
         // 创建scheduler
-//        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-//
-//        // 创建JobDetail
-//        JobDetail jobDetail = JobBuilder.newJob(
-//                (Class<? extends Job>) Class.forName("com.springboot.demo.quartz.JobSchedule")).
-//                withIdentity("jobTest", "group2").
-//                build();
-//
-//        // 指定时间触发，每隔2s执行一次，重复20次
-//        Trigger trigger2 = newTrigger()
-//                .withIdentity("trigger1", "group1")
-//                //开始时间：当前时间 = 立即
-//                .startAt(new Date())
-//                //设置简单计划
-//                .withSchedule(simpleSchedule()
-//                        //重复执行间隔
-//                        .withIntervalInSeconds(2)
-//                        //永久执行
-//                        .repeatForever()
-//                        //重复次数:3 表示执行4次
-//                        //.withRepeatCount(3)
-//                        )
-//                .build();
-//
-//        scheduler.scheduleJob(jobDetail, trigger2);
-//        scheduler.start();
+        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+        // 创建JobDetail
+        JobDetail jobDetail = JobBuilder.newJob(
+                (Class<? extends Job>) Class.forName("com.springboot.demo.quartz.TestJob01")).
+                withIdentity("jobTest", "group2").
+                build();
+
+        // 指定时间触发，每隔2s执行一次，重复20次
+        Trigger trigger2 = newTrigger()
+                .withIdentity("trigger1", "group1")
+                //开始时间：当前时间 = 立即
+                .startAt(new Date())
+                //设置简单计划
+                .withSchedule(simpleSchedule()
+                        //重复执行间隔
+                        .withIntervalInSeconds(2)
+                        //永久执行
+                        .repeatForever()
+                        //重复次数:3 表示执行4次
+                        //.withRepeatCount(3)
+                        )
+                .build();
+
+        scheduler.scheduleJob(jobDetail, trigger2);
+        scheduler.start();
 
         return "开始执行-TestJob";
     }
 
     @GetMapping("/simpleScheduleJob-Over")
     public String testJobOver() throws Exception {
-//        log.info("终止TestJob");
-//
-//        // 创建scheduler
-//        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-//
-//        // 创建JobDetail
-//        JobDetail jobDetail = JobBuilder.newJob(
-//                (Class<? extends Job>) Class.forName("com.springboot.demo.quartz.JobSchedule")).
-//                withIdentity("jobTest", "group2").
-//                build();
-//
-//        scheduler.deleteJob(jobDetail.getKey());
-//
+        log.info("终止TestJob");
+
+        // 创建scheduler
+        Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+        // 创建JobDetail
+        JobDetail jobDetail = JobBuilder.newJob(
+                (Class<? extends Job>) Class.forName("com.springboot.demo.quartz.TestJob01")).
+                withIdentity("jobTest", "group2").
+                build();
+
+        scheduler.deleteJob(jobDetail.getKey());
+
         return "结束执行-TestJob";
     }
 
@@ -90,29 +90,12 @@ public class ScheduleJobController {
 
         try {
             for (ScheduleJob scheduleJob : scheduleJobs) {
-                // 创建scheduler //StdSchedulerFactory.getDefaultScheduler();
                 Scheduler scheduler = quartzConfig.scheduler();
                 // 创建JobDetail
                 JobDetail jobDetail = JobBuilder.newJob(
                         (Class<? extends Job>) Class.forName(scheduleJob.getJobClass())).
                         withIdentity(scheduleJob.getJobName(), scheduleJob.getJobGroup()).
                         build();
-
-                // 指定时间触发，每隔2s执行一次，重复20次
-//                Trigger trigger = newTrigger()
-//                        .withIdentity(scheduleJob.getTriggerName(), scheduleJob.getTriggerGroup())
-//                        //开始时间：当前时间 = 立即
-//                        .startAt(new Date())
-//                        //设置简单计划
-//                        .withSchedule(simpleSchedule()
-//                                        //重复执行间隔
-//                                        .withIntervalInSeconds(2)
-//                                        //永久执行
-//                                        .repeatForever()
-//                                //重复次数:3 表示执行4次
-//                                //.withRepeatCount(3)
-//                        )
-//                        .build();
 
                 Trigger trigger = TriggerBuilder.newTrigger()
                         .withIdentity(scheduleJob.getTriggerName(), scheduleJob.getTriggerGroup())

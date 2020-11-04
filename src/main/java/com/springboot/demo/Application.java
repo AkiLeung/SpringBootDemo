@@ -32,7 +32,8 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         /**默認執行
-         * SpringApplication.run(Application.class, args);*/
+         * SpringApplication.run(Application.class, args);
+         * */
         SpringApplication springApplication = new SpringApplication(Application.class);
         springApplication.setBannerMode(Banner.Mode.OFF);
         springApplication.run(args);
