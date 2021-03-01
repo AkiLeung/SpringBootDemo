@@ -1,0 +1,10 @@
+#for tests only !
+#Mon Mar 01 00:26:15 PST 2021
+jco.client.lang=EN
+jco.client.passwd=akijoseph
+jco.client.sysnr=00
+jco.destination.pool_capacity=3
+jco.client.client=400
+jco.destination.peak_limit=10
+jco.client.user=JOSEPH.L
+jco.client.ashost=172.16.11.181

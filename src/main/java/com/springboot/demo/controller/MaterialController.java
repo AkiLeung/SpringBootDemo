@@ -32,7 +32,7 @@ public class MaterialController {
     public JsonResult listMaterial(Model model,
                                    @RequestParam(value = "curPage", required = false) Integer curPage) {
         List<Material> materialList = null;
-        int pageSize = 5;
+        int pageSize = 50;
         if (null == curPage) {
             curPage = 1;
         }

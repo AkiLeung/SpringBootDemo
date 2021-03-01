@@ -99,6 +99,15 @@
             <artifactId>spring-boot-starter-quartz</artifactId>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/com.sap.conn.jco/sapjco3 -->
+        <!--<dependency>-->
+            <!--<groupId>com.sap.conn.jco</groupId>-->
+            <!--<artifactId>sapjco3</artifactId>-->
+            <!--<version>3.0.14</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+
         <!-- shiro-spring -->
         <!--<dependency>-->
         <!--<groupId>org.apache.shiro</groupId>-->
@@ -160,6 +169,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- 添加本地 sapjco3 -->
+        <dependency>
+            <groupId>com.sap.conn.jco</groupId>
+            <artifactId>sapjco3</artifactId>
+            <version>3.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/src/main/resources/jar/sapjco3.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
@@ -192,6 +210,8 @@
                     <include>**/*.*</include>
                 </includes>
             </resource>
+
+
         </resources>
     </build>
 
